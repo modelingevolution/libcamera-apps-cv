@@ -1,0 +1,3 @@
+add_executable(concurrent_queue_tests tst_ConcurrentQueue.cpp)
+target_link_libraries(concurrent_queue_tests gtest gtest_main)
+target_link_libraries(concurrent_queue_tests concurrent_queue)

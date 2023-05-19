@@ -1,0 +1,3 @@
+add_executable(buffer_pool_tests tst_BufferPool.cpp)
+target_link_libraries(buffer_pool_tests gtest gtest_main)
+target_link_libraries(buffer_pool_tests buffer_pool)

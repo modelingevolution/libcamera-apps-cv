@@ -1,0 +1,3 @@
+add_executable(saving_to_file_tests tst_SavingToFile.cpp)
+target_link_libraries(saving_to_file_tests gtest gtest_main)
+target_link_libraries(saving_to_file_tests concurrent_queue buffer_pool)
