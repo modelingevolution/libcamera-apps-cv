@@ -155,7 +155,7 @@ void opencv_loop(LibcameraApp *app)
 	cv::Mat *prv = &frame2;
 
 	long frameCounter = 0;
-	int trianglesCounter=0;
+
 
 	while (true)
 	{
@@ -168,8 +168,8 @@ void opencv_loop(LibcameraApp *app)
 		{
 			std::vector<std::vector<cv::Point> > contours;
 			std::vector<cv::Point> approx;
+			int trianglesCounter=0;
 
-			
 			cv::inRange(frame,
 					cv::Scalar(0, 0, 0),
 					cv::Scalar(100, 100, 100),
