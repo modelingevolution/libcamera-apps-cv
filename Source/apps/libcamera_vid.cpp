@@ -166,6 +166,7 @@ void opencv_loop(LibcameraApp *app)
 
 		if (frameCounter > 0)
 		{
+			//Basic triangle recognition example - START
 			std::vector<std::vector<cv::Point> > contours;
 			std::vector<cv::Point> approx;
 			int trianglesCounter=0;
@@ -184,6 +185,8 @@ void opencv_loop(LibcameraApp *app)
 			}
 
 			std::cout<<"Counturs: "<< contours.size()<<" Triangles: "<< trianglesCounter <<std::endl;
+
+			//Basic triangle recognition example - END
 		}
 
 		cv::Mat *tmp = prv;
