@@ -149,11 +149,14 @@ void opencv_loop(LibcameraApp *app)
 
 	cv::Mat frame;
 	cv::Mat frame2;
+	cv::Mat inRangeFrame;
+
 
 
 	cv::Mat *current = &frame;
 	cv::Mat *prv = &frame2;
-	long i = 0;
+
+	long frameCounter = 0;
 
 
 
@@ -166,9 +169,28 @@ void opencv_loop(LibcameraApp *app)
 			continue;
 		}
 
-		if (i > 0)
+		if (frameCounter > 0)
 		{
+			std::vector<std::vector<cv::Point> > contours;
+			cv::inRange(frame,
+					cv::Scalar(0, 0, 0),
+					cv::Scalar(100, 100, 100),
+						inRangeFrame);
+			cv::findContours(inRangeFrame,contours, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
+			std::vector<cv::Point> approx;
+			if(frameCounter==20)
+			{
+				cv::imwrite("test.jpg",inRangeFrame);
+			}
+			int trianglesCOunter=0;
+			std::cout<<"counturs: "<< contours.size() <<std::endl;
+			for (size_t i = 0; i < contours.size(); i++) {
+				approxPolyDP(cv::Mat(contours[i]), approx, arcLength(cv::Mat(contours[i]), true)*0.02, true);
+				if(approx.size()==3)
+					trianglesCOunter++;
 
+			}
+			std::cout<<"Triangles: "<< trianglesCOunter <<std::endl;
 
 		}
 
@@ -177,7 +199,7 @@ void opencv_loop(LibcameraApp *app)
 		current = tmp;
 
 
-		i++;
+		frameCounter++;
 	}
 
 	
