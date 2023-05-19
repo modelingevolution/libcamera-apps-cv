@@ -1,6 +1,7 @@
-# libcamera-apps
+# libcamera-apps-cv
 
 This is a small suite of libcamera-based apps that aim to copy the functionality of the existing "raspicam" apps. 
+This fork made by ModelingEvolution contains implemented OpenCV with prepared method in libcamera-vid where you can put your computer vision algorithm based on OpenCV library.
 
 Build
 -----
