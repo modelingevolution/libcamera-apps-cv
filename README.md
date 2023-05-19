@@ -7,3 +7,4 @@ This is integrated version of libcamera-apps with OpenCV to apply computer visio
 --save-to-file (=path) - Save frames to binary file in given location. Name of file will be $TIMESTAMP_frames.bin. 
 
 # Tutorial link: 
+https://www.modelingevolution.com/libcamera-apps-cv-tutorial
